@@ -49,7 +49,7 @@
 					./hive/hardware-configuration.nix
 					{ networking.hostName = "hive"; }
 					./hive/configuration.nix
-					#{ home-manager.users.corum = import ./home.nix; }
+					{ home-manager.users.corum = import ./hive/home.nix; }
 				];
 			};
 		};
