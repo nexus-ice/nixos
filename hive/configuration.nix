@@ -33,7 +33,7 @@
 	# ─────────────────────────────────────────
 	# Systemweite Programme
 	# ─────────────────────────────────────────
-	programs.firefox.enable = true;
+	#programs.firefox.enable = true;
 	
 	# ─────────────────────────────────────────
 	# Bios Uhr auf local setzen wegen win 11

@@ -16,6 +16,7 @@
 	home.packages = [
 		pkgs.keepassxc
 	];
+	programs.firefox.enable = true;
 
 
 }
