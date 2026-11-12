@@ -78,7 +78,7 @@
 				modules = modules-common ++ modules-server ++ [
 					./mediahive/hardware-configuration-mediahive.nix
 					{ networking.hostName = "mediahive"; }
-					./vault/configuration-mediahive.nix
+					./mediahive/configuration-mediahive.nix
 					#{ home-manager.users.corum = import ./mediahive/home-mediahive.nix; }
 				];
 			};
