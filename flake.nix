@@ -24,8 +24,8 @@
 			config.allowUnfree = true;
 		};
 		# Gemeinsame Konfiguration für alle Systeme
-		common-modules = [
-			./common/configuration.nix
+		modules-common = [
+			./common/configuration-common.nix
 			home-manager.nixosModules.home-manager {
 				home-manager.useGlobalPkgs = true;
 				home-manager.useUserPackages = true;
@@ -34,7 +34,7 @@
 				# pkgs-unstable an home.nix weitergeben
 				home-manager.extraSpecialArgs = { inherit pkgs-unstable; };
 			}
-			{ home-manager.users.corum = import ./common/home.nix; }
+			{ home-manager.users.corum = import ./common/home-common.nix; }
 		];
 	in {
 		nixosConfigurations = {
@@ -45,11 +45,11 @@
 			hive = nixpkgs.lib.nixosSystem {
 				inherit system;
 				specialArgs = { inherit pkgs-unstable; };
-				modules = common-modules ++ [
-					./hive/hardware-configuration.nix
+				modules = modules-common ++ [
+					./hive/hardware-configuration-hive.nix
 					{ networking.hostName = "hive"; }
-					./hive/configuration.nix
-					{ home-manager.users.corum = import ./hive/home.nix; }
+					./hive/configuration-hive.nix
+					{ home-manager.users.corum = import ./hive/home-hive.nix; }
 				];
 			};
 		};
