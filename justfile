@@ -14,3 +14,8 @@ pull-update:
 	git fetch
 	git pull
 	sudo nixos-rebuild switch --flake .
+	
+push:
+	git add .
+	git commit -m "Updated: `date +'%Y-%m-%d %H:%M:%S'`"
+	git push
