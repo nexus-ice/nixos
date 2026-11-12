@@ -209,6 +209,9 @@
     				TZ = "Europe/Berlin";
     				UPSNAP_HTTP_LISTEN = "0.0.0.0:8090";
     			};
+    			ports = [
+      				"8090:8090"
+      			];
     			volumes = [
     				"/home/corum/.docker/upsnap/data:/app/pb_data"
     			];
