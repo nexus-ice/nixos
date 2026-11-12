@@ -69,6 +69,19 @@
 					#{ home-manager.users.corum = import ./vault/home-vault.nix; }
 				];
 			};
+			# --- Konfiguration für MediaHive ---
+			# Dateiname: hardware-configuration.nix
+			# Aufruf: sudo nixos-rebuild switch --flake .#mediahive
+			mediahive = nixpkgs.lib.nixosSystem {
+				inherit system;
+				specialArgs = { inherit pkgs-unstable; };
+				modules = modules-common ++ modules-server ++ [
+					./mediahive/hardware-configuration-mediahive.nix
+					{ networking.hostName = "mediahive"; }
+					./vault/configuration-mediahive.nix
+					#{ home-manager.users.corum = import ./mediahive/home-mediahive.nix; }
+				];
+			};
 		};
 	};
 }
