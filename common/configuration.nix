@@ -62,16 +62,19 @@
 	# ─────────────────────────────────────────
 	# Installierte Software
 	# ─────────────────────────────────────────
-	environment.systemPackages = with pkgs; [ mc just ];
+	environment.systemPackages = with pkgs; [
+		mc 
+		#just 
+	];
 
 	# ─────────────────────────────────────────
 	# GIT 
 	# ─────────────────────────────────────────
-  	programs.git.enable = true;
-  	programs.git.config = {
-  		user.name = "nexus-ice";
-  		user.email = "nexusice1234@googlemail.com";
-  	};
+  	#programs.git.enable = true;
+  	#programs.git.config = {
+  	#	user.name = "nexus-ice";
+  	#	user.email = "nexusice1234@googlemail.com";
+  	#};
   	
 	# ─────────────────────────────────────────
 	# SSH 
