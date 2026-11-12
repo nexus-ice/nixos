@@ -119,7 +119,7 @@
       				PUID = "1000";
       				PGID = "100";
       				TZ = "Etc/UTC+1";
-      				ALLOW_INTERNAL_REQUESTS = "false" #optional
+      				ALLOW_INTERNAL_REQUESTS = "false"; #optional
       			};
       			ports = [
       				"80:80"
