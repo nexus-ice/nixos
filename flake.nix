@@ -46,20 +46,17 @@
 			# --- Konfiguration für Hive ---
 			# Dateiname: hardware-configuration.nix
 			# Aufruf: sudo nixos-rebuild switch --flake .#hive
-			let
-				hostName = "hive";
-			in {
-				${hostName}  = nixpkgs.lib.nixosSystem {
-					inherit system;
-					specialArgs = { inherit pkgs-unstable; };
-					modules = modules-common ++ [
-						./${hostName}/hardware-configuration-${hostName}.nix
-						{ networking.hostName = "${hostName}"; }
-						./${hostName}/configuration-${hostName}.nix
-						{ home-manager.users.corum = import ./${hostName}/home-${hostName}.nix; }
-					];
-				};
-			}
+			hive = nixpkgs.lib.nixosSystem {
+				inherit system;
+				specialArgs = { inherit pkgs-unstable; };
+				modules = modules-common ++ [
+					./hive/hardware-configuration-hive.nix
+					{ networking.hostName = "hive"; }
+					./hive/configuration-hive.nix
+					{ home-manager.users.corum = import ./hive/home-hive.nix; }
+				];
+			};
+
 			# --- Konfiguration für Vault ---
 			# Dateiname: hardware-configuration.nix
 			# Aufruf: sudo nixos-rebuild switch --flake .#vault
@@ -73,6 +70,7 @@
 					#{ home-manager.users.corum = import ./vault/home-vault.nix; }
 				];
 			};
+			
 			# --- Konfiguration für MediaHive ---
 			# Dateiname: hardware-configuration.nix
 			# Aufruf: sudo nixos-rebuild switch --flake .#mediahive
