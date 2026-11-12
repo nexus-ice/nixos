@@ -59,13 +59,13 @@
 			# --- Konfiguration für Vault ---
 			# Dateiname: hardware-configuration.nix
 			# Aufruf: sudo nixos-rebuild switch --flake .#vault
-			hive = nixpkgs.lib.nixosSystem {
+			vault = nixpkgs.lib.nixosSystem {
 				inherit system;
 				specialArgs = { inherit pkgs-unstable; };
 				modules = modules-common ++ modules-server ++ [
 					./vault/hardware-configuration-vault.nix
 					{ networking.hostName = "vault"; }
-					./hive/configuration-vault.nix
+					./vault/configuration-vault.nix
 					#{ home-manager.users.corum = import ./vault/home-vault.nix; }
 				];
 			};
