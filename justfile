@@ -7,10 +7,10 @@ update-push:
 	git add .
 	git commit -m "Updated: `date +'%Y-%m-%d %H:%M:%S'`"
 	sudo nixos-rebuild switch --flake .
-	#git push
+	git push
 
 # Neue Config runterladen und System bauen
 pull-update:
-	#git fetch
-	#git pull
+	git fetch
+	git pull
 	sudo nixos-rebuild switch --flake .
