@@ -23,7 +23,8 @@
   		defaultGateway.address = "192.168.2.1";
   		nameservers = ["192.168.2.2"];
   		firewall = {
-    			allowedUDPPorts = [ 9 ];
+    			allowedUDPPorts = [ 9 53 ];
+    			allowedTCPPorts = [ 8080 53 ];
   		};
 	};
   	
@@ -68,8 +69,8 @@
         	openFirewall = true;
         	mutableSettings = true;
     	};
-	networking.firewall.allowedTCPPorts = [ 8080 53 ];
-	networking.firewall.allowedUDPPorts = [ 53 ];
+	#networking.firewall.allowedTCPPorts = [ 8080 53 ];
+	#networking.firewall.allowedUDPPorts = [ 53 ];
 	services.resolved.enable = false;
 	
 	# ─────────────────────────────────────────
