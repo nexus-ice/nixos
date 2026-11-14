@@ -57,6 +57,20 @@
 				];
 			};
 
+			# --- Konfiguration für nexus ---
+			# Dateiname: hardware-configuration.nix
+			# Aufruf: sudo nixos-rebuild switch --flake .#nexus
+			nexus = nixpkgs.lib.nixosSystem {
+				inherit system;
+				specialArgs = { inherit pkgs-unstable; };
+				modules = modules-common ++ [
+					./nexus/hardware-configuration-nexus.nix
+					{ networking.hostName = "nexus"; }
+					./nexus/configuration-nexus.nix
+					{ home-manager.users.corum = import ./nexus/home-nexus.nix; }
+				];
+			};
+
 			# --- Konfiguration für Vault ---
 			# Dateiname: hardware-configuration.nix
 			# Aufruf: sudo nixos-rebuild switch --flake .#vault
