@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  networking.hostName = "vault"; 
+  networking.hostName = "nexus"; 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -34,8 +34,4 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
-  # Zram 
-  zramSwap.enable = true;
-  zramSwap.memoryPercent = 50;
 }
