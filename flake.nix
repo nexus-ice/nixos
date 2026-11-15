@@ -64,7 +64,7 @@
 				inherit system;
 				specialArgs = { inherit pkgs-unstable; };
 				modules = modules-common ++ [
-					./nexus/
+					./nexus
 				];
 			};
 
