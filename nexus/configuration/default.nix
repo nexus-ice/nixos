@@ -6,6 +6,7 @@
 {
 	imports = [
 		./configuration-nexus.nix
-		./ZRamSwap.nix
+		./sound.nix
+		./zram_swap.nix
 	];
 }
