@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 {
- 
+  networking.hostName = "vault"; 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
