@@ -5,8 +5,8 @@
 {
 	imports = [
 		{ networking.hostName = "nexus"; }
-		./hardware-configuration-nexus.nix
+		./hardware-configuration.nix
 		./configuration
-		{ home-manager.users.corum = import ./home-nexus.nix; }
+		{ home-manager.users.corum = import ./home; }
 	];
 }

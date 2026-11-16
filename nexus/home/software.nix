@@ -1,13 +1,8 @@
 # ============================================================
-# Home Manager Konfiguration – corum für Hive
-# Zuständig für: Benutzerprogramme, Theme, GNOME-Einstellungen
-# Systemweites → configuration.nix
+# Software für user corum auf Host Nexus
 # ============================================================
-
-# pkgs-unstable wird von flake.nix via extraSpecialArgs übergeben
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, pkgs-unstable, lib, ... }:
 {
-	
 	# ─────────────────────────────────────────
 	# Benutzerprogramme
 	# Pakete aus unstable: pkgs-unstable.paketname
@@ -17,5 +12,4 @@
 		pkgs.keepassxc
 	];
 	programs.firefox.enable = true;
-
 }
