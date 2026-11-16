@@ -25,7 +25,7 @@
 		};
 		# Gemeinsame Konfiguration für alle Systeme
 		modules-common = [
-			./common/configuration-common.nix
+			./common
 			home-manager.nixosModules.home-manager {
 				home-manager.useGlobalPkgs = true;
 				home-manager.useUserPackages = true;
@@ -34,7 +34,6 @@
 				# pkgs-unstable an home.nix weitergeben
 				home-manager.extraSpecialArgs = { inherit pkgs-unstable; };
 			}
-			{ home-manager.users.corum = import ./common/home-common.nix; }
 		];
 		modules-server = [
 			./server/configuration-server.nix
