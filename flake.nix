@@ -64,7 +64,7 @@
 				inherit system;
 				specialArgs = { inherit pkgs-unstable; };
 				modules = modules-common ++ [
-					{ networking.hostName = "nexus"; }
+					#{ networking.hostName = "nexus"; }
 					./nexus
 				];
 			};
