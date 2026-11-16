@@ -5,8 +5,9 @@
 { config, pkgs, pkgs-unstable, lib, ... }:
 {
 	imports = [
-		./configuration-nexus.nix
+		./xfce.nix
 		./sound.nix
+		./drucker.nix
 		./zram_swap.nix
 	];
 }
