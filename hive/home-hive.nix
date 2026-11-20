@@ -5,27 +5,31 @@
 # ============================================================
 
 # pkgs-unstable wird von flake.nix via extraSpecialArgs übergeben
-{ config, pkgs, pkgs-unstable, ... }:
 {
-	
-	# ─────────────────────────────────────────
-	# Benutzerprogramme
-	# Pakete aus unstable: pkgs-unstable.paketname
-	# Pakete aus stable:   pkgs.paketname
-	# ─────────────────────────────────────────
-	home.packages = [
-		pkgs.keepassxc
-	];
-	programs.firefox.enable = true;
-	
-	# ─────────────────────────────────────────
-	# Gnome Settings
-	# ─────────────────────────────────────────
-	dconf.settings = {
-		"org/gnome/desktop/interface" = {
-			color-scheme = "prefer-dark";
-		};
-	};
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
+{
 
+  # ─────────────────────────────────────────
+  # Benutzerprogramme
+  # Pakete aus unstable: pkgs-unstable.paketname
+  # Pakete aus stable:   pkgs.paketname
+  # ─────────────────────────────────────────
+  home.packages = [
+    pkgs.keepassxc
+  ];
+  programs.firefox.enable = true;
+
+  # ─────────────────────────────────────────
+  # Gnome Settings
+  # ─────────────────────────────────────────
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
 
 }
