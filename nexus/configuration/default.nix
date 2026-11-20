@@ -10,10 +10,10 @@
 }:
 {
   imports = [
-    #./xfce.nix
+    ./xfce.nix
     ./sound.nix
     ./drucker.nix
-    ./gnome.nix
+    #./gnome.nix
     ./zram_swap.nix
   ];
 }
