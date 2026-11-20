@@ -1,8 +1,14 @@
 # ============================================================
 # ZRamSwap Config
 # ============================================================
-{ config, pkgs, pkgs-unstable, lib, ... }:
 {
-	zramSwap.enable = true;
-	zramSwap.memoryPercent = 25;
+  config,
+  pkgs,
+  pkgs-unstable,
+  lib,
+  ...
+}:
+{
+  zramSwap.enable = true;
+  zramSwap.memoryPercent = 25;
 }
