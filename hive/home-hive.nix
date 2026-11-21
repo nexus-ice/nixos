@@ -12,7 +12,9 @@
   ...
 }:
 {
-
+imports = [
+    ./vscode.nix
+  ];
   # ─────────────────────────────────────────
   # Benutzerprogramme
   # Pakete aus unstable: pkgs-unstable.paketname
