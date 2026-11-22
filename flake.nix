@@ -58,10 +58,7 @@
           inherit system;
           specialArgs = { inherit pkgs-unstable; };
           modules = modules-common ++ [
-            ./hive/hardware-configuration-hive.nix
-            { networking.hostName = "hive"; }
-            ./hive/configuration-hive.nix
-            { home-manager.users.corum = import ./hive/home-hive.nix; }
+            ./hive
           ];
         };
 
