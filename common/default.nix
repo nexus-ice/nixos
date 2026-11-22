@@ -1,5 +1,5 @@
 # ============================================================
-# Importiert alle Config files für den alle Hosts
+# Importiert alle Config Files für alle Hosts
 # ============================================================
 {
   config,

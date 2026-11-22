@@ -1,5 +1,5 @@
 # ============================================================
-# Software für user corum auf allen Hosts
+# Software für user corum auf alle Hosts
 # ============================================================
 {
   config,

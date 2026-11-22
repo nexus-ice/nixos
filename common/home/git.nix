@@ -1,5 +1,5 @@
 # ============================================================
-# Git Config für user corum auf allen Hosts
+# Git Config für user corum auf alle Hosts
 # ============================================================
 {
   config,

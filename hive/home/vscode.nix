@@ -1,5 +1,5 @@
 # ============================================================
-# VSCode Config für user corum auf Host Nexus
+# VSCode Config für user corum auf Host Hive
 # ============================================================
 {
   config,
