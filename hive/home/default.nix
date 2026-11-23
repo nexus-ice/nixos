@@ -10,7 +10,6 @@
 }:
 {
   imports = [
-    ./software.nix
     ./vscode.nix
     ./gnome.nix
   ];
