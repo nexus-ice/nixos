@@ -10,8 +10,6 @@
 }:
 {
   imports = [
-    ./sound.nix
-    ./drucker.nix
     ./gnome.nix
     ./hwclock_local.nix
   ];

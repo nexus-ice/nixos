@@ -1,6 +1,6 @@
 # ============================================================
 # NixOS Multi Host Config
-# Zuständig für: Zusammenstellen der einzeln System
+# Aufruf: sudo nixos-rebuild switch --flake .#hostname
 # ============================================================
 {
   description = "NixOS Multi-Host Konfiguration";
@@ -43,6 +43,11 @@
           home-manager.extraSpecialArgs = { inherit pkgs-unstable; };
         }
       ];
+      # Gemeinsame Konfiguration für alle Desktops
+      modules-desktop = [
+        ./desktop
+      ];
+      # Gemeinsame Konfiguration für alle Server
       modules-server = [
         ./server/configuration-server.nix
         #{ home-manager.users.corum = import ./server/home-server.nix; }
@@ -52,31 +57,27 @@
       nixosConfigurations = {
 
         # --- Konfiguration für Hive ---
-        # Dateiname: hardware-configuration.nix
-        # Aufruf: sudo nixos-rebuild switch --flake .#hive
         hive = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit pkgs-unstable; };
-          modules = modules-common ++ [
-            ./hive
-          ];
+          modules =
+            modules-common
+            ++ modules-desktop
+            ++ [
+              ./hive
+            ];
         };
 
         # --- Konfiguration für nexus ---
-        # Dateiname: hardware-configuration.nix
-        # Aufruf: sudo nixos-rebuild switch --flake .#nexus
         nexus = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit pkgs-unstable; };
           modules = modules-common ++ [
-            #{ networking.hostName = "nexus"; }
             ./nexus
           ];
         };
 
         # --- Konfiguration für Vault ---
-        # Dateiname: hardware-configuration.nix
-        # Aufruf: sudo nixos-rebuild switch --flake .#vault
         vault = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit pkgs-unstable; };
@@ -92,8 +93,6 @@
         };
 
         # --- Konfiguration für MediaHive ---
-        # Dateiname: hardware-configuration.nix
-        # Aufruf: sudo nixos-rebuild switch --flake .#mediahive
         mediahive = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit pkgs-unstable; };
