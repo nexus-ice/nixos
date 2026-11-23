@@ -72,9 +72,12 @@
         nexus = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit pkgs-unstable; };
-          modules = modules-common ++ [
-            ./nexus
-          ];
+          modules =
+            modules-common
+            ++ modules-desktop
+            ++ [
+              ./nexus
+            ];
         };
 
         # --- Konfiguration für Vault ---

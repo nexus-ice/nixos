@@ -10,7 +10,5 @@
 }:
 {
   imports = [
-    ./software.nix
-    ./vscode.nix
   ];
 }
