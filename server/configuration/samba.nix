@@ -1,10 +1,6 @@
 # ============================================================
-# NixOS Systemkonfiguration alle Server
-# Zuständig für: Hardware, System, Dienste, Desktop-Umgebung
-# Benutzerspezifisches → home.nix
+# Samba Server Configuration
 # ============================================================
-
-# pkgs-unstable wird von flake.nix via specialArgs übergeben
 {
   config,
   pkgs,
@@ -13,22 +9,6 @@
   ...
 }:
 {
-  # ─────────────────────────────────────────
-  # Mergerfs Pool
-  # ─────────────────────────────────────────
-  environment.systemPackages = with pkgs; [ mergerfs ];
-  fileSystems."/mnt/pool" = {
-    fsType = "fuse.mergerfs";
-    device = "/mnt/HDD*";
-    options = [
-      "defaults"
-      "allow_other"
-    ];
-  };
-
-  # ─────────────────────────────────────────
-  # Samba
-  # ─────────────────────────────────────────
   services.samba = {
     enable = true;
     openFirewall = true;
@@ -69,5 +49,4 @@
     openFirewall = true;
   };
   networking.firewall.allowPing = true;
-
 }

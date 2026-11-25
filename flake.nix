@@ -49,8 +49,7 @@
       ];
       # Gemeinsame Konfiguration für alle Server
       modules-server = [
-        ./server/configuration-server.nix
-        #{ home-manager.users.corum = import ./server/home-server.nix; }
+        ./server
       ];
     in
     {
