@@ -90,7 +90,7 @@
               ./vault/hardware-configuration-vault.nix
               { networking.hostName = "vault"; }
               ./vault/configuration-vault.nix
-              { home-manager.users.corum = import ./vault/home-vault.nix; }
+              #{ home-manager.users.corum = import ./vault/home-vault.nix; }
             ];
         };
 
